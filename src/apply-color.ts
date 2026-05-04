@@ -26,7 +26,10 @@ export async function unapplyColors() {
 
   // Overwite color customizations, without the peacock ones.
   // This preserves any extra ones someone might have.
-  const existing = getColorCustomizationConfigFromWorkspace();
+  // Snapshot before deletePeacocksColorCustomizations runs — it mutates the
+  // workspace config object in place, and the snapshot must capture the
+  // pre-delete state for the equality check to be meaningful.
+  const existing = { ...getColorCustomizationConfigFromWorkspace() };
   const colorCustomizationsWithPeacock = deletePeacocksColorCustomizations();
   if (settingsIndexersAreEqual(existing, colorCustomizationsWithPeacock)) {
     // Nothing to remove — avoid a redundant write that would dirty

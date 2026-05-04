@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo '// trigger touch')",
+      "Bash(git -C /Users/claylevering/Blu/Repos/vscode-peacock restore .vscode/settings.json)"
+    ]
+  }
+}
