@@ -238,7 +238,11 @@ suite('Remote Integration', () => {
     const value = config[ColorSettings.titleBar_activeBackground];
 
     assert.ok(isValidColorInput(value), 'Color should be valid when falling back to peacock.color');
-    assert.equal(value, peacockGreen, 'Should fall back to peacock.color when remoteColor is not set');
+    assert.equal(
+      value,
+      peacockGreen,
+      'Should fall back to peacock.color when remoteColor is not set',
+    );
   });
 
   test('when in remote and remoteColor is set, remoteColor takes priority over peacock.color', async () => {
