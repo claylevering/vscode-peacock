@@ -1,15 +1,15 @@
 {
-  "name": "vscode-peacock",
+  "name": "vscode-peaclaxx",
   "displayName": "Peacock",
   "description": "Subtly change the workspace color of your workspace. Ideal when you have multiple VS Code instances and you want to quickly identify which is which.",
   "version": "4.2.5",
-  "publisher": "johnpapa",
+  "publisher": "claylevering",
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
     "type": "git",
-    "url": "https://github.com/johnpapa/vscode-peacock.git"
+    "url": "https://github.com/claylevering/vscode-peacock.git"
   },
-  "homepage": "https://github.com/johnpapa/vscode-peacock/blob/main/README.md",
+  "homepage": "https://github.com/claylevering/vscode-peacock/blob/main/README.md",
   "icon": "resources/peacock-icon.png",
   "galleryBanner": {
     "color": "#373436",
@@ -398,6 +398,7 @@
   "scripts": {
     "package": "npx vsce package",
     "publish": "npx vsce publish",
+    "publish:ovsx": "npx ovsx publish",
     "vscode:prepublish": "webpack --mode production",
     "lint": "eslint ./src --ext .js,.ts",
     "lint-fix": "eslint ./src --ext .js,.ts --fix",
