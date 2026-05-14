@@ -1,8 +1,8 @@
 {
   "name": "vscode-peaclaxx",
-  "displayName": "Peacock",
+  "displayName": "Peaclaxx",
   "description": "Subtly change the workspace color of your workspace. Ideal when you have multiple VS Code instances and you want to quickly identify which is which.",
-  "version": "4.2.5",
+  "version": "4.2.6",
   "publisher": "claylevering",
   "license": "SEE LICENSE IN LICENSE.md",
   "repository": {
