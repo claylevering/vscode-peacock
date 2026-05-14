@@ -19,11 +19,22 @@ export async function addRemoteIntegration(context: vscode.ExtensionContext) {
   // const remoteExtensions = remoteExtensionsInstalled();
   // await vscode.commands.executeCommand('setContext', 'peacock:remote', remoteExtensions);
 
+  // Only apply on activation if a color is actually configured. Passing
+  // undefined to applyColor() triggers unapplyColors() (via the
+  // isValidColorInput check), which WIPES workbench.colorCustomizations.
+  // That's destructive on every fresh install / reactivate where peacock.color
+  // was cleared but colorCustomizations still has peacock keys lingering.
+  // Wiping is a user-initiated action (Reset / Remove commands), not an
+  // activation effect.
   if (vscode.env.remoteName) {
     const remoteColor = getPeacockRemoteColor() || getPeacockColor();
-    await applyColor(remoteColor);
+    if (remoteColor) {
+      await applyColor(remoteColor);
+    }
   } else {
     const peacockColor = getPeacockColor();
-    await applyColor(peacockColor);
+    if (peacockColor) {
+      await applyColor(peacockColor);
+    }
   }
 }
